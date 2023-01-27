@@ -1,32 +1,30 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   registerMode = false;
-  users: any
-  constructor(private http:HttpClient) { }
+  users: any;
+  constructor() {}
 
   ngOnInit(): void {
-    this.getUsers();
+   // this.getUsers();
   }
-  getUsers(){
+/*   getUsers() {
     this.http.get('https://localhost:5001/api/users').subscribe({
-      next: respose => this.users = respose,
-      error: error => console.log(error),
-      complete: ()=> console.log('Request has completed')
+      next: (respose) => (this.users = respose),
+      error: (error) => console.log(error),
+      complete: () => console.log('Request has completed'),
     });
-  }
-  registerToggle(){
+  } */
+  registerToggle() {
     this.registerMode = !this.registerMode;
   }
 
-  cancelRegisterMode(event: boolean){
-    this.registerMode =event;
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
   }
 }
