@@ -52,7 +52,7 @@
         Welcome {{user.username | titlecase}}
       </button>
       <ul class="dropdown-menu" *dropdownMenu>
-        <li><a class="dropdown-item">Edit Profile</a></li>
+        <li><a class="dropdown-item" routerLink="/member/edit">Edit Profile</a></li>
         <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
       </ul>
     </div>
