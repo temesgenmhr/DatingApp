@@ -18,6 +18,8 @@ namespace API.Helpers
             CreateMap<Message, MessageDto>()
             .ForMember(d => d.SenderPhotoUrl, o => o.MapFrom(s => s.Sender.Photos.FirstOrDefault(a => a.IsMain).Url))
             .ForMember(d => d.RecipientphotoUrl, o => o.MapFrom(s => s.Recipient.Photos.FirstOrDefault(a => a.IsMain).Url));
+            CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
+            CreateMap<DateTime?, DateTime?>().ConvertUsing(d => d.HasValue? DateTime.SpecifyKind(d.Value, DateTimeKind.Utc): null);
         }
     }
 }
